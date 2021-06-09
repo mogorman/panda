@@ -91,7 +91,7 @@ static int tesla_rx_hook(CAN_FIFOMailBox_TypeDef *to_push) {
   //get latest steering wheel angle
   if (addr == 0x00E) {
     float angle_meas_now = (int)(((((GET_BYTE(to_push, 0) & 0x3F) << 8) + GET_BYTE(to_push, 1)) * 0.1) - 819.2);
-    uint32_t ts = TIM2->CNT;
+    uint32_t ts = MICROSECOND_TIMER->CNT;
     uint32_t ts_elapsed = get_ts_elapsed(ts, tesla_ts_angle_last);
 
     // *** angle real time check
