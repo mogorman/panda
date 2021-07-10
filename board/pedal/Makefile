@@ -23,7 +23,7 @@ canflash: obj/$(PROJ_NAME).bin
 
 usbflash: obj/$(PROJ_NAME).bin
 	../../tests/pedal/enter_canloader.py; sleep 0.5
-	PYTHONPATH=../../ python -c "from python import Panda; p = [x for x in [Panda(x) for x in Panda.list()] if x.bootstub]; assert(len(p)==1); p[0].flash('obj/$(PROJ_NAME).bin', reconnect=False)"
+	PYTHONPATH=../../ python -c "from panda import Panda; p = [x for x in [Panda(x) for x in Panda.list()] if x.bootstub]; assert(len(p)==1); p[0].flash('obj/$(PROJ_NAME).bin', reconnect=False)"
 
 recover: obj/bootstub.bin obj/$(PROJ_NAME).bin
 	../../tests/pedal/enter_canloader.py --recover; sleep 0.5

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from tqdm import tqdm
 from panda import Panda
-from panda.python.uds import UdsClient, MessageTimeoutError, NegativeResponseError, SESSION_TYPE, DATA_IDENTIFIER_TYPE
+from panda.panda.uds import UdsClient, MessageTimeoutError, NegativeResponseError, SESSION_TYPE, DATA_IDENTIFIER_TYPE
 
 if __name__ == "__main__":
   addrs = [0x700 + i for i in range(256)]
